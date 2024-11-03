@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: #FCE1CF; /* Fondo del body */
+    margin: 0; /* Eliminar márgenes por defecto */
+    height: 100vh; /* Asegúrate de que el body ocupe toda la altura */
+}

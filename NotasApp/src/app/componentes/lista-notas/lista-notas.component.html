@@ -1,3 +1,4 @@
-<div>
-    <h1> Estas son tus notas </h1>
+<div *ngFor="let nota of notas">
+    <h3>{{ nota.titulo }}</h3>
+    <p>{{ nota.contenido }}</p>
 </div>

@@ -3,8 +3,8 @@ const { createNotaController, readNotasController } = require("../controller/not
 
 const router = Router()
 
-router.get('/notas', readNotasController)
-router.post('/notas',createNotaController)
+router.get('/', readNotasController)
+router.post('/',createNotaController)
 
 module.exports = router;
 

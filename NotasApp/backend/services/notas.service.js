@@ -1,4 +1,4 @@
-const { getNotasRepository, agregarNotaRepository, getNotaByIdRepository } = require("../repository/notas.repository.js");
+const { getNotasRepository, agregarNotaRepository, getNotaByIdRepository, eliminarNotaRepository } = require("../repository/notas.repository.js");
 
 // Aca traemos todas nuestras notas
 exports.getNotasService = async () => {
@@ -30,5 +30,18 @@ exports.agregarNotaService = async (nuevaNota) => {
         console.error('Error en el Servicio: ', error)
         throw new Error('Error al aregegar la nota')
 
+    }
+}
+
+// eliminamos una nota
+
+exports.eliminarNotaService = async (id) => {
+    try {
+        const notaEliminada = await eliminarNotaRepository(id)
+    return notaEliminada
+
+    } catch (error) {
+        console.error('Error en el service', error)
+        throw new Error('Error al eliminar la nota')
     }
 }

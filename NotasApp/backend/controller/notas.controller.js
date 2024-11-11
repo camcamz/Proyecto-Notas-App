@@ -1,4 +1,4 @@
-const { getNotasService, agregarNotaService, getNotaByIdService} = require("../services/notas.service.js")
+const { getNotasService, agregarNotaService, getNotaByIdService, eliminarNotaService} = require("../services/notas.service.js")
 
 // trae todas las notas
 exports.readNotasController = async (req, res) => {
@@ -48,3 +48,21 @@ exports.createNotaController = async (req, res) => {
         res.status(500).send({ message: 'Error al agregar la nota'})
         }
 }
+
+// eliminar nota
+exports.deleteNotaController = async (req, res) => {
+    const {id}= req.params
+
+    try {
+        const notaEliminada = await eliminarNotaService(id)
+
+        if(!notaEliminada) {
+            return res.status(404).send({mensaje: `No se encotró ninguna nota con ID ${id}`})
+        }
+
+        res.status(200).send({mensaje: 'La nota ha sido eliminada correctamente', Nota: notaEliminada})
+    } catch (error) {
+        console.error(error)
+        res.status(500).send({mensaje: 'Error al eliminar la nota'})
+    }
+  };

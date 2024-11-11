@@ -53,3 +53,19 @@ exports.agregarNotaRepository = async (nuevaNota) => {
     }
 
 }
+//eliminar nota
+exports.eliminarNotaRepository = async (id) => {
+
+    try {
+        const notaEliminada = await Notas.findByIdAndDelete(id)
+        if(!notaEliminada) {
+            console.log('Nota no encontrado');
+        }else {
+            console.log('Se eliminó la siguiente nota de la lista')
+            return notaEliminada
+        }
+    } catch (error) {
+        console.error('Error en el repositorio', error)
+        throw new Error('Error al eliminar la nota de la base de datos')
+    }
+}

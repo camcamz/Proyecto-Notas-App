@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NotasService } from '../../services/api-notas';
+import { Nota } from '../modals/nota';
 
 @Component({
   selector: 'app-detalle-nota',
@@ -10,7 +11,7 @@ import { NotasService } from '../../services/api-notas';
   styleUrl: './detalle-nota.component.css'
 })
 export class DetalleNotaComponent {
-  nota: any;
+  nota!: Nota;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,10 +20,15 @@ export class DetalleNotaComponent {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log("id ", id)
-    this.notasService.obtenerNotaById(id).subscribe(data => {
-      console.log("notaID: ", data)
-      this.nota = data;
-    });
+    console.log("id ", id);
+  
+    if (id) {
+      this.notasService.obtenerNotaById(id).subscribe(data => {
+        console.log("notaID: ", data);
+        this.nota = data;
+      });
+    } else {
+      console.error('No se proporcionó un ID válido');
+    }
   }
 }

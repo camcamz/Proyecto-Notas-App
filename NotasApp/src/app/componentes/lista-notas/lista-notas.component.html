@@ -1,3 +1,9 @@
-<div>
-    <h1> Estas son tus notas </h1>
+<div class="tarjetas-notas">
+    <div *ngFor="let nota of notas" class="tarjeta" [routerLink]="['/nota', nota._id]">
+        <h3>{{ nota.titulo }}</h3>
+        <p>{{ nota.descripcion }}</p>
+        <span>{{ nota.creada }}</span>
+        <br>
+        <span>{{ nota.completada }}</span>
+    </div>
 </div>

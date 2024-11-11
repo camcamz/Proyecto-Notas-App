@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NotasService } from '../../services/api-notas';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-lista-notas',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './lista-notas.component.html',
   styleUrls: ['./lista-notas.component.css']

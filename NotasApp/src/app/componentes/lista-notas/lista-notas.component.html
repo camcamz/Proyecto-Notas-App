@@ -1,5 +1,5 @@
 <div class="tarjetas-notas">
-    <div *ngFor="let nota of notas" class="tarjeta">
+    <div *ngFor="let nota of notas" class="tarjeta" [routerLink]="['/nota', nota._id]">
         <h3>{{ nota.titulo }}</h3>
         <p>{{ nota.descripcion }}</p>
         <span>{{ nota.creada }}</span>

@@ -18,6 +18,27 @@ exports.getNotasRepository = async () => {
     } finally {
     }
 }
+
+// Aca traemos una nota
+exports.getNotaByIdRepository = async (id) => {
+    try {
+        const notaEncontrada = await Notas.findById(id);
+        if(notaEncontrada.length == 0) {
+            console.log("Nota no encontrado");
+        }else {
+            return notaEncontrada
+        }
+
+        return notaEncontrada
+
+    } catch (error) {
+        console.error('Error en el Repositorio: ', error)
+        throw new Error('Error en la consulta a la base de datos')
+    } 
+}
+
+
+
 // agregamos nueva nota
 exports.agregarNotaRepository = async (nuevaNota) => {
     try {

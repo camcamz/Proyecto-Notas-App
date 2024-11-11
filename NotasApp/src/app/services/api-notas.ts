@@ -16,6 +16,11 @@ export class NotasService {
     return this._httpClient.get<any>(this.apiUrl);
   }
 
+  // Método para obtener una nota
+  obtenerNotaById(id: any): Observable<any> {
+    return this._httpClient.get<any>(`${this.apiUrl}/${id}`);
+  }
+
   // Método para agregar una nueva nota
   agregarNota(nota: any): Observable<any> {
     return this._httpClient.post<any>(this.apiUrl, nota);

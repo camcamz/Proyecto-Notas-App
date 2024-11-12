@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');  // Mantén la sintaxis 'require'
+const mongoose = require('mongoose');
 
 const notaSchema = new mongoose.Schema({
     titulo: {
@@ -19,6 +19,6 @@ const notaSchema = new mongoose.Schema({
     },
 });
 
-const Notas = mongoose.model('Notas', notaSchema); // Declara el modelo como variable
+const Notas = mongoose.model('Notas', notaSchema);
 
-module.exports = { Notas };  // Usa 'module.exports' para exportar
+module.exports = { Notas };

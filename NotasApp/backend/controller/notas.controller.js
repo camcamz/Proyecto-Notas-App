@@ -24,5 +24,5 @@ exports.createNotaController = async (req, res) => {
         } catch (error) {
         console.error(error)
         res.status(500).send({ message: 'Error al agregar la nota'})
-        }
+    }
 }

@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -6,10 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NotasService {
-  private _httpClient = inject(HttpClient); // Usa inject() para inyectar HttpClient
   private apiUrl = 'http://localhost:3000/api/notas';
 
-  constructor() {}
+  constructor(private _httpClient: HttpClient) {}
 
   // Método para obtener todas las notas
   obtenerNotas(): Observable<any> {
@@ -20,6 +19,5 @@ export class NotasService {
   agregarNota(nota: any): Observable<any> {
     return this._httpClient.post<any>(this.apiUrl, nota);
   }
-
-  // Otros métodos para actualizar y eliminar notas
+  
 }

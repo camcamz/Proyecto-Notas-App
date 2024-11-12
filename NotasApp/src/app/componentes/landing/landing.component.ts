@@ -10,10 +10,10 @@ export class LandingComponent {
   constructor(private router: Router) {}
 
   irAListaNotas() {
-    this.router.navigate(['/listanotas']); // Cambia a la ruta correspondiente
+    this.router.navigate(['/listanotas']); // Cambia a la ruta correspondiente dirgiendo al componente que muestra todas las notas
   }
 
   irANuevaNota() {
-    this.router.navigate(['/nuevanota']); // Cambia a la ruta correspondiente
+    this.router.navigate(['/nuevanota']); // Cambia a la ruta correspondiente dirgiendo al componente que crea una nota nueva
   }
 }

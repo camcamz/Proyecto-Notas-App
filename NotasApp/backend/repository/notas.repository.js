@@ -17,6 +17,27 @@ exports.getNotasRepository = async () => {
         throw new Error('Error en la consulta a la base de datos')
     }
 }
+
+// Aca traemos una nota
+exports.getNotaByIdRepository = async (id) => {
+    try {
+        const notaEncontrada = await Notas.findById(id);
+        if(notaEncontrada.length == 0) {
+            console.log("Nota no encontrado");
+        }else {
+            return notaEncontrada
+        }
+
+        return notaEncontrada
+
+    } catch (error) {
+        console.error('Error en el Repositorio: ', error)
+        throw new Error('Error en la consulta a la base de datos')
+    } 
+}
+
+
+
 // agregamos nueva nota
 exports.agregarNotaRepository = async (nuevaNota) => {
     try {
@@ -29,5 +50,22 @@ exports.agregarNotaRepository = async (nuevaNota) => {
     } catch (error) {
         console.error('Error en el Repositorio: ', error)
         throw new Error('Error al agregar nueva nota')
+    }
+
+}
+//eliminar nota
+exports.eliminarNotaRepository = async (id) => {
+
+    try {
+        const notaEliminada = await Notas.findByIdAndDelete(id)
+        if(!notaEliminada) {
+            console.log('Nota no encontrado');
+        }else {
+            console.log('Se eliminó la siguiente nota de la lista')
+            return notaEliminada
+        }
+    } catch (error) {
+        console.error('Error en el repositorio', error)
+        throw new Error('Error al eliminar la nota de la base de datos')
     }
 }

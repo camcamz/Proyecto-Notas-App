@@ -1,4 +1,4 @@
-const { getNotasService, agregarNotaService} = require("../services/notas.service.js")
+const { getNotasService, agregarNotaService, getNotaByIdService, eliminarNotaService} = require("../services/notas.service.js")
 
 // trae todas las notas
 exports.readNotasController = async (req, res) => {
@@ -11,6 +11,28 @@ exports.readNotasController = async (req, res) => {
         res.status(500).send({ message: 'Error al obtener las notas' })
     }
 }
+
+
+// trae una nota
+exports.readNotaByIdController = async (req, res) => {
+    const {id}= req.params
+    console.log("idCONTROLLER ",id)
+    
+    try {
+        const notaEncontrada = await getNotaByIdService(id)
+
+        if(!notaEncontrada) {
+            return res.status(404).send({mensaje: `No se encotró ninguna nota con ID ${id}`})
+        }
+        res.status(200).send(notaEncontrada)
+
+    } catch (error) {
+        console.error(error)
+        res.status(500).send({ message: 'Error al obtener las notas' })
+    }
+}
+
+
 // agregar nueva nota
 exports.createNotaController = async (req, res) => {
     const { titulo, descripcion, completada, creada } = req.body
@@ -24,5 +46,23 @@ exports.createNotaController = async (req, res) => {
         } catch (error) {
         console.error(error)
         res.status(500).send({ message: 'Error al agregar la nota'})
-    }
+        }
 }
+
+// eliminar nota
+exports.deleteNotaController = async (req, res) => {
+    const {id}= req.params
+
+    try {
+        const notaEliminada = await eliminarNotaService(id)
+
+        if(!notaEliminada) {
+            return res.status(404).send({mensaje: `No se encotró ninguna nota con ID ${id}`})
+        }
+
+        res.status(200).send({mensaje: 'La nota ha sido eliminada correctamente', Nota: notaEliminada})
+    } catch (error) {
+        console.error(error)
+        res.status(500).send({mensaje: 'Error al eliminar la nota'})
+    }
+};

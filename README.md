@@ -9,3 +9,6 @@ Este proyecto fue generado con tecnologias Angular,Node.JS con un servidor Expre
 3. Una vez descargadas las dependencias, ejecutar el comando ng serve para iniciar el proyecto
 4. Para la base de datos , ejecutar el comando node app.js para iniciar el servidor de Express/MongoDB (Este paso debe realizarse ya estando en el directorio del proyecto)
 5. Disfrutar la app y testear
+
+## Momento meme para descontracturar 
+![Meme](https://i.pinimg.com/736x/9e/fc/d6/9efcd61094e53895043fd7493d1c475d.jpg)

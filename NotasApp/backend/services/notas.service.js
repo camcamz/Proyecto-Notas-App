@@ -9,7 +9,7 @@ exports.getNotasService = async () => {
         throw new Error('Error al obteber los datos')
     }
 }
-// Aca traemos una nota
+// Aca traemos una nota por id 
 exports.getNotaByIdService = async (id) => {
     try {
         const notaEncontrada = await getNotaByIdRepository(id)
@@ -33,7 +33,7 @@ exports.agregarNotaService = async (nuevaNota) => {
     }
 }
 
-// eliminamos una nota
+// Aca eliminamos una nota
 
 exports.eliminarNotaService = async (id) => {
     try {

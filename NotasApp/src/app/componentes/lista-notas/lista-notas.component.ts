@@ -40,6 +40,7 @@ export class ListaNotasComponent implements OnInit {
       this.notas = this.notas.filter(nota => nota._id !== id);
     });
   }*/
+
   abrirModal(id: string): void {
     console.log("se abre modal???", id)
     this.notaAEliminarId = id;

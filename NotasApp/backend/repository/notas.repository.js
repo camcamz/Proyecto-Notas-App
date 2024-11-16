@@ -38,7 +38,7 @@ exports.getNotaByIdRepository = async (id) => {
 
 
 
-// agregamos nueva nota
+// Aca agregamos nueva nota
 exports.agregarNotaRepository = async (nuevaNota) => {
     try {
     const notaNueva = new Notas(nuevaNota)
@@ -53,7 +53,7 @@ exports.agregarNotaRepository = async (nuevaNota) => {
     }
 
 }
-//eliminar nota
+// Aca eliminamos una nota
 exports.eliminarNotaRepository = async (id) => {
 
     try {

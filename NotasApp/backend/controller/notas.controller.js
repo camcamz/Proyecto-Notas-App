@@ -1,6 +1,6 @@
 const { getNotasService, agregarNotaService, getNotaByIdService, eliminarNotaService} = require("../services/notas.service.js")
 
-// trae todas las notas
+// Aca traemos todas las notas
 exports.readNotasController = async (req, res) => {
     try {
         let notas = await getNotasService()
@@ -13,7 +13,7 @@ exports.readNotasController = async (req, res) => {
 }
 
 
-// trae una nota
+// Aca trae una nota por id
 exports.readNotaByIdController = async (req, res) => {
     const {id}= req.params
     console.log("idCONTROLLER ",id)
@@ -33,7 +33,7 @@ exports.readNotaByIdController = async (req, res) => {
 }
 
 
-// agregar nueva nota
+// Aca agregar nueva nota
 exports.createNotaController = async (req, res) => {
     const { titulo, descripcion, completada, creada } = req.body
     
@@ -49,7 +49,7 @@ exports.createNotaController = async (req, res) => {
         }
 }
 
-// eliminar nota
+// Aca eliminamos una nota
 exports.deleteNotaController = async (req, res) => {
     const {id}= req.params
 

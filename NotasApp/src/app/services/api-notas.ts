@@ -29,5 +29,4 @@ export class NotasService {
     return this._httpClient.delete<any>(`${this.apiUrl}/${id}`);
   }
 
-  
 }

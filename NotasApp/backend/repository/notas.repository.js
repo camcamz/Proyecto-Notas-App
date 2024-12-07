@@ -69,3 +69,21 @@ exports.eliminarNotaRepository = async (id) => {
         throw new Error('Error al eliminar la nota de la base de datos')
     }
 }
+
+// Aca actualizamos una nota
+exports.actualizarNotaRepository = async (id, nota) => {
+    try {
+        const notaActualizada = await Notas.findByIdAndUpdate(id, nota, { new: true })
+
+        if(!notaActualizada) {
+            console.log('Nota no encontrada');
+            return null
+        }else {
+            return notaActualizada
+        }
+    } catch (error) {
+        console.error('Error en el repositorio: ', error)
+        throw new Error("Error al actualziar la nota");
+    }
+}
+

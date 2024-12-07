@@ -1,20 +1,21 @@
 <div class="tarjetas-notas">
-    <div *ngFor="let nota of notas" class="tarjeta">
-        <div [routerLink]="['/nota', nota._id]" class="detalle-nota-link">
-            <h3>{{ nota.titulo }}</h3>
-            <p>{{ nota.descripcion }}</p>
-        </div>
-      <button (click)="abrirModal(nota._id)" class="btn-eliminar">Eliminar</button>
-    </div>
-</div>
-  
-<div class="modal" *ngIf="modalVisible">
-    <div class="modal-content">
-      <h3>¿Estás seguro de que deseas eliminar esta nota?</h3>
-      <div class="modal-buttons">
-        <button (click)="confirmarEliminacion()" class="btn-confirmar">Sí, Eliminar</button>
-        <button (click)="cerrarModal()" class="btn-cancelar">Cancelar</button>
+  <div *ngFor="let nota of notas" class="tarjeta">
+      <div [routerLink]="['/nota', nota._id]" class="detalle-nota-link">
+          <h3>{{ nota.titulo }}</h3>
+          <p>{{ nota.descripcion }}</p>
       </div>
-    </div>
+    <button (click)="abrirModal(nota._id)" class="btn-opciones">Eliminar</button>
+    <br>
+    <button (click)="editarNota(nota._id)" class="btn-opciones">Editar</button>
+  </div>
 </div>
-  
+
+<div class="modal" *ngIf="modalVisible">
+  <div class="modal-content">
+    <h3>¿Estás seguro de que deseas eliminar esta nota?</h3>
+    <div class="modal-buttons">
+      <button (click)="confirmarEliminacion()" class="btn-confirmar">Sí, Eliminar</button>
+      <button (click)="cerrarModal()" class="btn-cancelar">Cancelar</button>
+    </div>
+  </div>
+</div>

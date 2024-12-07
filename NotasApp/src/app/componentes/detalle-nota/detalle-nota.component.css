@@ -4,11 +4,10 @@
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
-    background-color: #d8b4bc;
 }
 
 .tarjeta-detalle {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.514); /* Fondo translúcido */
     border-radius: 16px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     padding: 40px;
@@ -19,6 +18,11 @@
     position: relative;
     overflow: hidden;
     animation: fadeIn 0.5s ease;
+
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Borde translúcido */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Brillo alrededor */
 }
 
 @keyframes fadeIn {
@@ -63,4 +67,55 @@
     height: 6px;
     background-color: #FDC5B0;
     border-radius: 16px 16px 0 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .tarjeta-detalle {
+        padding: 30px;
+        max-width: 80%; /* Hacer la tarjeta más pequeña en pantallas más pequeñas */
+    }
+
+    .tarjeta-detalle h2 {
+        font-size: 1.8em; /* Reducir el tamaño del título */
+    }
+
+    .tarjeta-detalle p {
+        font-size: 1em; /* Reducir el tamaño del texto */
+    }
+}
+
+@media (max-width: 768px) {
+    .tarjeta-detalle {
+        padding: 20px;
+        max-width: 90%; /* Ajustar la tarjeta a un tamaño mayor en tabletas */
+    }
+
+    .tarjeta-detalle h2 {
+        font-size: 1.6em; /* Ajustar aún más el tamaño del título */
+    }
+
+    .tarjeta-detalle p {
+        font-size: 0.95em; /* Reducir aún más el tamaño del texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .tarjeta-detalle {
+        padding: 15px;
+        max-width: 95%; /* Ajustar más el tamaño de la tarjeta */
+    }
+
+    .tarjeta-detalle h2 {
+        font-size: 1.4em; /* Reducir el tamaño del título para móviles */
+    }
+
+    .tarjeta-detalle p {
+        font-size: 0.9em; /* Ajustar el tamaño del texto para móviles */
+    }
+
+    /* Reduce la sombra para móviles */
+    .tarjeta-detalle {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
 }

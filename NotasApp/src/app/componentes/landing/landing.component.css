@@ -1,13 +1,22 @@
 /* Estilos del recuadro*/
 #recuadro {
-    background-color: #FDC5B0; 
-    border-radius: 15px; 
-    padding: 20px; 
-    text-align: center; 
-    border: 2px dashed #404040;
+    background: rgba(255, 255, 255, 0.3); /* Fondo translúcido */
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
     max-width: 400px;
-    margin: 20px auto; 
+    margin: 20px auto;
+
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+
+    /* Nuevo borde luminoso */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Blanco translúcido */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Brillo alrededor */
 }
+
+
 /* Estilos del logo */
 #logo {
     width: 100%; 
@@ -37,20 +46,78 @@ h2{
     margin-bottom: 30px;
 }
 /* Estilos de los botones */
-.btn-landing{
+.btn-landing {
     font-family: 'Montserrat', sans-serif;
-    padding: 20px 30px;
-    font-size: 1rem;
+    padding: 20px 40px; /* Aumenta el relleno para un tamaño mayor */
+    font-size: 1.2rem; /* Texto ligeramente más grande */
     font-weight: bold;
-    color: #404040;
-    background-color: #FCE1CF;
-    border: 2px dashed #404040;
+    color: rgba(64, 64, 64, 0.8); /* Color translúcido */
+    background: rgba(255, 255, 255, 0.2); /* Fondo translúcido */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde translúcido */
     border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Efecto desenfoque */
+    -webkit-backdrop-filter: blur(5px); /* Compatibilidad con Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
-.btn-landing:hover{
-    border: 2px solid #404040;
-    background-color: #404040;
-    color: #FDC5B0;
+
+.btn-landing:hover {
+    background: rgba(255, 255, 255, 0.4); /* Fondo más opaco */
+    color: rgba(64, 64, 64, 1); /* Texto más oscuro */
+    border: 1px solid rgba(255, 255, 255, 0.8); /* Borde más visible */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+}
+
+/* Media Query para pantallas pequeñas (menos de 600px) */
+/* Media Query para pantallas pequeñas (menos de 600px) */
+@media (max-width: 600px) {
+    /* Reducción del ancho del recuadro para dispositivos móviles */
+    #recuadro {
+        max-width: 90%; /* Reduce el ancho al 90% en pantallas pequeñas */
+        padding: 15px; /* Reduce el padding */
+    }
+
+    /* Tamaño de los títulos */
+    h1 {
+        font-size: 28px; /* Hacer el título un poco más pequeño */
+    }
+
+    h2 {
+        font-size: 20px; /* Reducir el tamaño del subtítulo */
+    }
+
+    /* Ajustes en los botones */
+    .btn-landing {
+        padding: 15px 30px; /* Reducir el tamaño de los botones */
+        font-size: 1rem; /* Texto más pequeño */
+        backdrop-filter: none; /* Elimina el efecto de desenfoque en pantallas pequeñas */
+        -webkit-backdrop-filter: none; /* Elimina el desenfoque en Safari */
+    }
+
+    /* Ajustes en el logo */
+    #logo {
+        width: 70%; /* Hacer el logo un poco más pequeño */
+        margin-bottom: 10px; /* Reducir el margen */
+    }
+
+    /* Ajuste en los botones de la landing */
+    .botones-inicio {
+        flex-direction: column; /* Organizar los botones verticalmente */
+        gap: 15px; /* Menor espacio entre los botones */
+    }
+}
+
+/* Media Query para pantallas medianas (menos de 768px) */
+@media (max-width: 768px) {
+    /* Aumento del ancho del recuadro para tablets pequeñas */
+    #recuadro {
+        max-width: 80%; /* Reduce el ancho al 80% en pantallas medianas */
+    }
+
+    /* Tamaño de los botones */
+    .btn-landing {
+        padding: 18px 35px; /* Reducir tamaño de botones para tablets */
+        font-size: 1.1rem; /* Tamaño de texto más pequeño */
+    }
 }

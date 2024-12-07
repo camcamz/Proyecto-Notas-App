@@ -76,7 +76,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
-
 /* Estilos del mensaje de éxito */
 .mensaje-exito {
     font-family: 'Montserrat', sans-serif;
@@ -88,7 +87,6 @@
     border-radius: 4px;
     text-align: center;
 }
-
 /* Media Query para pantallas pequeñas (menos de 600px) */
 @media (max-width: 600px) {
     /* Ajustes para hacer que el formulario ocupe más espacio en pantallas pequeñas */

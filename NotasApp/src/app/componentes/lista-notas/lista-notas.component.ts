@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NotasService } from '../../services/api-notas';
 import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-notas',
@@ -18,7 +19,7 @@ export class ListaNotasComponent implements OnInit {
   modalVisible: boolean = false;
   notaAEliminarId: string = '';
 
-  constructor(private notasService: NotasService) {}
+  constructor(private notasService: NotasService, private router: Router) {}
 
   ngOnInit(): void {
     this.cargarNotas();
@@ -35,11 +36,6 @@ export class ListaNotasComponent implements OnInit {
     );
   }
 
-  /*eliminarNota(id: string): void {
-    this.notasService.eliminarNota(id).subscribe(() => {
-      this.notas = this.notas.filter(nota => nota._id !== id);
-    });
-  }*/
 
   abrirModal(id: string): void {
     console.log("se abre modal???", id)
@@ -57,5 +53,14 @@ export class ListaNotasComponent implements OnInit {
       this.cerrarModal();
     });
   }
-}
+  
+  editarNota(id: string | undefined) {
+    if (!id) {
+        console.error('ID de la nota no está definido');
+        return;
+    }
 
+    this.router.navigate(['/notas', id]);
+  }
+
+}

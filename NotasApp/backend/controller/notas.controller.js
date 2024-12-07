@@ -1,4 +1,4 @@
-const { getNotasService, agregarNotaService, getNotaByIdService, eliminarNotaService} = require("../services/notas.service.js")
+const { getNotasService, agregarNotaService, getNotaByIdService, eliminarNotaService, updateNotaService, actualizarNotaService} = require("../services/notas.service.js")
 
 // Aca traemos todas las notas
 exports.readNotasController = async (req, res) => {
@@ -66,3 +66,25 @@ exports.deleteNotaController = async (req, res) => {
         res.status(500).send({mensaje: 'Error al eliminar la nota'})
     }
 };
+
+// Aca actualizamos las notas
+exports.updateNotaController = async (req, res) => {
+    const { id } = req.params;
+    const { titulo, descripcion, completada, creada } = req.body
+    try {
+        const notaActualizada = await actualizarNotaService(id, { titulo, descripcion, completada, creada });
+
+        if(!notaActualizada) {
+            return res.status(404).send({mensaje: `No se encontró la nota con el ID ${id}`})
+        }
+
+        res.status(200).send({
+            mensaje: `La nota con el ID ${id} ha sido actualizado corerctamente`,
+            notaActualizada
+        })
+        
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({mensaje: "Error al actualizar la nota"})
+    }
+}

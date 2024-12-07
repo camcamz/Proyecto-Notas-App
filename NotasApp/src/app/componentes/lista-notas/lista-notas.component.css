@@ -1,138 +1,214 @@
+/* estilo general de tarjetas */
 .tarjetas-notas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.tarjeta {
+  background-color: rgba(255, 255, 255, 0.514); /* Fondo translúcido */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 20px;
+  text-align: center; /* Alineación del contenido */
+  width: calc(33% - 20px); /* Ajuste de tamaño para tres tarjetas por fila */
+  margin: 10px; /* Espacio entre tarjetas */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+              0 0 10px rgba(255, 255, 255, 0.5); /* Sombra y brillo alrededor */
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Borde translúcido */
+  overflow: hidden; /* Para evitar que el contenido desborde */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-8px); /* Leve movimiento hacia arriba */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 
+              0 0 15px rgba(255, 255, 255, 0.6); /* Sombra más intensa y brillo */
+}
+
+.tarjeta h3 {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  font-size: 1.5em;
+  color: rgb(50, 50, 50); /* Texto más opaco */
+  border-bottom: 2px solid rgba(255, 197, 176, 0.7); /* Línea decorativa */
+  padding-bottom: 10px;
+}
+
+.tarjeta p {
+  font-family: 'Montserrat', sans-serif;
+  margin: 12px 0;
+  color: rgba(60, 60, 60, 0.75); /* Texto translúcido */
+  line-height: 1.6;
+  font-size: 1.1em;
+}
+
+.tarjeta span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  color: rgba(100, 100, 100, 0.65); /* Texto translúcido más tenue */
+  margin-top: 10px;
+  text-align: right;
+}
+
+.tarjeta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4); /* Barra translúcida */
+  border-radius: 15px 15px 0 0;
+}
+
+/*estilo de modal*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-translúcido */
+}
+
+.modal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; /* Tomar el fondo del modal */
+  backdrop-filter: blur(10px); /* Aplica el desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+  z-index: -1; /* Asegurarse de que el filtro se aplique detrás del contenido */
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.514); /* Fondo translúcido */
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  width: 400px; /* Ancho del modal */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+              0 0 10px rgba(255, 255, 255, 0.5); /* Sombra y brillo alrededor */
+  z-index: 1; /* Asegurarse de que el contenido esté por encima del fondo */
+}
+
+.modal h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: rgba(50, 50, 50, 0.85); /* Texto más opaco */
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* estilo de botones */
+.btn-opciones {
+  background: rgba(255, 80, 80, 0.295); /* Fondo translúcido */
+  color: rgba(255, 255, 255, 0.9); /* Texto claro */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Borde translúcido */
+  padding: 10px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px); /* Desenfoque */
+  -webkit-backdrop-filter: blur(5px); /* Compatibilidad */
+}
+
+.btn-opciones:hover {
+  background: rgba(255, 80, 80, 0.5); /* Fondo más visible */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.btn-confirmar, .btn-cancelar {
+  background: rgba(255, 255, 255, 0.15); /* Fondo translúcido */
+  color: rgba(50, 50, 50, 0.85); /* Texto opaco */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Borde translúcido */
+  padding: 10px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 45%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(5px); /* Compatibilidad con Safari */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra suave */
+}
+
+.btn-confirmar {
+  background: rgba(76, 175, 79, 0.5);
+  color: rgba(255, 255, 255, 0.9); /* Texto claro */
+}
+
+.btn-confirmar:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.btn-cancelar {
+  background: rgba(244, 67, 54, 0.3); /* Rojo más visible */
+  color: rgba(255, 255, 255, 0.9); /* Texto claro */
+}
+
+.btn-cancelar:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 768px) {
   .tarjeta {
-    background-color: #ffffff7e;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: calc(30% - 20px); 
-    box-sizing: border-box;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
+    width: calc(50% - 20px); /* Dos tarjetas por fila */
   }
-  
-  .tarjeta:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  }
-  
-  .tarjeta h3 {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    font-size: 1.4em;
-    color: #2d3748; 
-    border-bottom: 2px solid #FDC5B0;
-    padding-bottom: 8px;
-  }
-  
-  .tarjeta p {
-    font-family: 'Montserrat', sans-serif;
-    margin: 12px 0;
-    color: #4a5568;
-    line-height: 1.6;
-    font-size: 1em;
-  }
-  
-  .tarjeta span {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85em;
-    color: #4a5568;
-    display: block;
-    margin-top: 10px;
-    text-align: right;
-  }
-  
-  .tarjeta::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: #FDC5B0;
-    border-radius: 12px 12px 0 0;
-  }
-  
-  .btn-eliminar {
-    background-color: #e74c3c; 
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.1em;
-    cursor: pointer;
-    border-radius: 8px;
-    align-self: flex-end;
-    transition: background-color 0.1s;
-  }
-  
-  .btn-eliminar:hover {
-    background-color: #c0392b;
-  }
-  
-  /* Estilos del Modal */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+
   .modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    width: 400px; 
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Ancho más pequeño del modal en pantallas pequeñas */
+    padding: 20px; /* Menos relleno para pantallas pequeñas */
+    margin: 15px;
   }
-  
+
   .modal h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 1.3em; /* Reducir tamaño del texto en pantallas pequeñas */
   }
-  
-  .modal-buttons {
-    display: flex;
-    justify-content: space-around;
-  }
-  
+
   .btn-confirmar, .btn-cancelar {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.1em;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-top: 15px;
-    width: 45%; 
+    width: 100%; /* Botones ocupan todo el ancho en pantallas pequeñas */
+    margin: 5px; /* Espacio entre botones */
   }
-  
-  .btn-confirmar:hover {
-    background-color: #45a049;
+}
+
+/* Para pantallas más pequeñas (móviles) */
+@media (max-width: 480px) {
+  .tarjeta {
+    width: calc(100% - 20px); /* Una tarjeta por fila */
   }
-  
-  .btn-cancelar {
-    background-color: #f44336; 
+
+  .tarjeta h3 {
+    font-size: 1.2em; /* Reducir aún más el tamaño del título */
   }
-  
-  .btn-cancelar:hover {
-    background-color: #e53935;
+
+  .tarjeta p {
+    font-size: 1em; /* Reducir el tamaño de texto para mayor legibilidad */
   }
-  
+
+  .modal-content {
+    width: 95%; /* Ancho más pequeño */
+  }
+}

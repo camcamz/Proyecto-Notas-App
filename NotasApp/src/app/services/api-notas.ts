@@ -15,7 +15,7 @@ export class NotasService {
     return this._httpClient.get<any>(this.apiUrl);
   }  
 
-  // Método para obtener una nota
+  // Método para obtener una nota por ID
   obtenerNotaById(id: any): Observable<any> {
     return this._httpClient.get<any>(`${this.apiUrl}/${id}`);
   }
@@ -24,9 +24,15 @@ export class NotasService {
   agregarNota(nota: any): Observable<any> {
     return this._httpClient.post<any>(this.apiUrl, nota);
   }
-  // Método para eliminar una nota por id
+
+  // Método para eliminar una nota por ID
   eliminarNota(id: string): Observable<any> {
     return this._httpClient.delete<any>(`${this.apiUrl}/${id}`);
+  }
+
+  // Función para actualizar una nota
+  actualizarNota(id: string, nota: any): Observable<any> {
+    return this._httpClient.put<any>(`${this.apiUrl}/${id}`, nota);
   }
 
 }

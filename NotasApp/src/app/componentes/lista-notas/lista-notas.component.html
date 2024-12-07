@@ -1,9 +1,19 @@
+<!-- Select para filtrar las notas -->
+<div class="filtro-container">
+  <label for="filtroCompletada" class="filtro-label">Filtrar por:</label>
+  <select id="filtroCompletada" [(ngModel)]="filtroCompletada" (change)="filtrarNotas()" class="select-filtro">
+    <option [ngValue]="null">Todos</option>
+    <option [ngValue]="true">Completadas</option>
+    <option [ngValue]="false">Pendientes</option>
+  </select>
+</div>
+
 <div class="tarjetas-notas">
-  <div *ngFor="let nota of notas" class="tarjeta">
-      <div [routerLink]="['/nota', nota._id]" class="detalle-nota-link">
-          <h3>{{ nota.titulo }}</h3>
-          <p>{{ nota.descripcion }}</p>
-      </div>
+  <div *ngFor="let nota of notasFiltradas" class="tarjeta">
+    <div [routerLink]="['/nota', nota._id]" class="detalle-nota-link">
+      <h3>{{ nota.titulo }}</h3>
+      <p>{{ nota.descripcion }}</p>
+    </div>
     <button (click)="abrirModal(nota._id)" class="btn-opciones">Eliminar</button>
     <br>
     <button (click)="editarNota(nota._id)" class="btn-opciones">Editar</button>

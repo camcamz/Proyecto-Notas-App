@@ -1,3 +1,48 @@
+/* Contenedor para el label y select */
+.filtro-container {
+  display: flex; /* Hacemos un layout flex */
+  justify-content: flex-end; /* Alineamos todo a la derecha */
+  align-items: center; /* Centra verticalmente los elementos */
+  gap: 10px; /* Espacio entre el label y el select */
+  padding: 15px;
+}
+
+/* Estilo del select pequeño alineado a la derecha */
+.select-filtro {
+  background-color: rgba(255, 255, 255, 0.514); /* Fondo translúcido */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Borde translúcido */
+  padding: 8px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  backdrop-filter: blur(5px); /* Desenfoque */
+  -webkit-backdrop-filter: blur(5px); /* Compatibilidad con Safari */
+  width: auto; /* Ajuste al contenido */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: rgba(60, 60, 60, 0.75); /* Color de texto translúcido */
+}
+
+/* Hover sobre el select */
+.select-filtro:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+              0 0 10px rgba(255, 255, 255, 0.5); /* Sombra */
+}
+
+/* Opciones del select */
+option {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(50, 50, 50, 0.85);
+}
+
+/* Estilo para la etiqueta del select */
+.filtro-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  color: rgba(50, 50, 50, 0.85);
+  margin-bottom: 8px;
+  text-align: right; /* Alinea la etiqueta a la derecha */
+}
+
 /* estilo general de tarjetas */
 .tarjetas-notas {
   display: flex;
@@ -174,6 +219,9 @@
 
 /* Estilos para pantallas más pequeñas */
 @media (max-width: 768px) {
+  .select-filtro {
+    width: auto; /* Ancho ajustado para pantallas más pequeñas */
+  }
   .tarjeta {
     width: calc(50% - 20px); /* Dos tarjetas por fila */
   }
